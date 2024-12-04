@@ -1,7 +1,8 @@
 param(
     [Parameter(Mandatory=$true)][String]$AzurePassword,
     [Parameter(Mandatory=$true)][String]$AzureTenantId,
-    [Parameter(Mandatory=$true)][String]$AzureSubscriptionId
+    [Parameter(Mandatory=$true)][String]$AzureSubscriptionId,
+    [Parameter(Mandatory=$true)][String]$AzureAppId
 )
 
 try
@@ -9,7 +10,7 @@ try
     Write-Output "Connecting to Azure"
     
     $azurePasswordSecureString = ConvertTo-SecureString $AzurePassword -AsPlainText -Force
-    $psCred = New-Object System.Management.Automation.PSCredential($AzureSubscriptionId, $azurePasswordSecureString)
+    $psCred = New-Object System.Management.Automation.PSCredential($AzureAppId, $azurePasswordSecureString)
     $defaultProfile = Connect-AzAccount -Credential $psCred -TenantId $AzureTenantId  -ServicePrincipal
 
     Write-Output "Connected to Azure, getting the cloud service definition. CloudServiceName: $CloudServiceName"
