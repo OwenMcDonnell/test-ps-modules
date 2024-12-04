@@ -11,9 +11,8 @@ try
     
     $azurePasswordSecureString = ConvertTo-SecureString $AzurePassword -AsPlainText -Force
     $psCred = New-Object System.Management.Automation.PSCredential($AzureAppId, $azurePasswordSecureString)
-    $defaultProfile = Connect-AzAccount -Credential $psCred -TenantId $AzureTenantId  -ServicePrincipal
+    Connect-AzAccount -Credential $psCred -TenantId $AzureTenantId  -ServicePrincipal
 
-    Write-Output "Connected to Azure, getting the cloud service definition. CloudServiceName: $CloudServiceName"
 }
 catch [System.Exception] 
 { 
