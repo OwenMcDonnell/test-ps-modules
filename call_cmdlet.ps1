@@ -1,7 +1,7 @@
 param(
     [Parameter(Mandatory=$true)][String]$AzurePassword,
     [Parameter(Mandatory=$true)][String]$AzureTenantId,
-    [Parameter(Mandatory=$true)][String]$AzureSubscriptionId,
+    [Parameter(Mandatory=$true)][String]$AzureSubscriptionId
 )
 
 try
