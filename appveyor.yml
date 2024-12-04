@@ -12,7 +12,7 @@ init:
 test_script:
 #- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
 - ps: get-path
-- ps: ./call_cmdlet.ps1 -AzureTenantId $env:Az_TenantId -AzurePassword $env:Az_Password
+- ps: ./call_cmdlet.ps1 -AzureTenantId $env:Az_TenantId -AzurePassword $env:Az_Password -AzureSubscriptionId $env:Az_SubscriptionId
 
 
 build: off
