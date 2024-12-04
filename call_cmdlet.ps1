@@ -11,7 +11,7 @@ try
     $defaultProfile = Connect-AzAccount -Credential $psCred -TenantId $AzureTenantId  -ServicePrincipal
 
     Write-Output "Connected to Azure, getting the cloud service definition. CloudServiceName: $CloudServiceName"
-
+}
 catch [System.Exception] 
 { 
     Write-Error "======"
